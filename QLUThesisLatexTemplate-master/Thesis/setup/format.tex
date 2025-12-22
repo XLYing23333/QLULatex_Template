@@ -6,13 +6,13 @@
 
 %%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
 
-\setCJKfamilyfont{simsun}{simsun}[Path=font/,Extension=.ttf, BoldFont=simsunbold.ttf]
+\setCJKfamilyfont{simsun}{simsun}[Path=static/font/,Extension=.ttf, BoldFont=simsunbold.ttf]
 \renewcommand{\songti}{\CJKfamily{simsun}}
 
-\setCJKfamilyfont{simfang}{simfang}[Path=font/,Extension=.ttf]
+\setCJKfamilyfont{simfang}{simfang}[Path=static/font/,Extension=.ttf]
 \renewcommand{\fangsong}{\CJKfamily{simfang}}
 
-\setCJKfamilyfont{simhei}{simhei}[Path=font/,Extension=.ttf, BoldFont=simheibold.ttf]
+\setCJKfamilyfont{simhei}{simhei}[Path=static/font/,Extension=.ttf, BoldFont=simheibold.ttf]
 \renewcommand{\heiti}{\CJKfamily{simhei}}
 
 
@@ -242,6 +242,7 @@
 \def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
 \def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
 \def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
+\def\thtitle#1{\def\@thtitle{#1}}\def\@thtitle{}
 
 
 \pagestyle{fancy}
@@ -261,7 +262,7 @@
   
     \begin{figure}[h]
       \centering
-      \ \includegraphics[width=0.7\textwidth]{figures/MainLOGO-pretty.png}
+      \ \includegraphics[width=0.7\textwidth]{static/figures/MainLOGO-pretty.png}
     \end{figure}
 
     
@@ -271,7 +272,8 @@
 
     \vspace{76pt}
 
-    \heiti\sanhao{\textbf{中文论文题目（三号黑体加粗）}}%修改你封面的题目
+    \heiti\sanhao{\textbf{\@thtitle}}%修改你封面的题目
+    
 
     \vspace{108pt}
 
@@ -312,53 +314,5 @@
 }
 \makeatother
 
-
-% % 定义封面
-% \def\makecover{
-% %\cleardoublepage%
-%    \phantomsection
-%     \pdfbookmark[-1]{\@ctitle}{ctitle}
-
-%     \begin{titlepage}
-      
-%       \vspace*{7.2pt}
-      
-%       \begin{center}
-
-%       \begin{figure}[h]
-%       \centering
-%       \ \includegraphics[width=0.7\textwidth]{figures/MainLOGO-pretty.png}
-%       \end{figure}
-%       \heiti\xiaochu\textbf{\renewcommand{\CJKglue}{\hskip 0.14em}
-%         本科毕业设计（~论文~）\ 
-%       }
-
-%       \vspace{76pt}
-
-%       \heiti\sanhao{\textbf{中文论文题目（三号黑体加粗）}}%修改你封面的题目
-
-%       \vspace{108pt}
-
-%       \renewcommand\arraystretch{1.5}
-%       \setlength{\@title@width}{7cm}
-%       {
-%       \begin{tabular}{lc}
-%         \heiti\sihao{{学~部（~学~院~）}}&  \underline{\makebox[\@title@width][c]{\@caffil}} \\[0.35em]
-%         \heiti\sihao{{专\quad 业\quad 班\quad 级}} &  \underline{\makebox[\@title@width][c]{\@csubject}} \\[0.34em]
-%         \heiti\sihao{{学\quad 生\quad 姓\quad 名}}  &  \underline{\makebox[\@title@width][c]{\@cgrade}}\\[0.34em]
-%         \heiti\sihao{{学\qquad\qquad\ \ \  号}} &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\[0.34em]
-%         \heiti\sihao{{导\quad 师\quad 姓\quad 名}} &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-%       \end{tabular}
-%       }
-%       \vspace{3.25cm}
-
-%     \heiti\sihao{{\@cdate}}
-
-%     \end{center}
-% \end{titlepage}
-% }
-% \makeatother
-
-% 定义扉页
 
 

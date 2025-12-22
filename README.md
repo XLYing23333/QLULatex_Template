@@ -1,4 +1,4 @@
-# QLUThesisLatexTemplate
+# QLUThesis $\LaTeX$ Template
 
 <img src="./QLUThesisLatexTemplate-master/Thesis/figures/MainLOGO-pretty.png" style="zoom: 15%">
 
@@ -6,13 +6,17 @@
 
 齐鲁工业大学本科生毕业论文 LaTeX 模版
 
-## 为何使用 LaTeX
+## 为何使用 $\LaTeX$
 
 <center>致爱折腾的你</center>
 
-在刚刚结束的毕业设计撰写中，很多使用 Word 的同学在写作过程中出现大量难以解决的格式问题，非常头疼。LaTeX 虽然学习曲线较为陡峭，但花费一个小时左右时间熟悉后即可完全专注于内容撰写而无需操心任何格式问题。本模版即旨在你只需复制粘贴修改具体内容即可作出 __基本__ 符合齐鲁工业大学现行规范的毕业设计。供后人参阅
+$\LaTeX$作为专业化的排版工具，在书籍出版、论文撰写、美赛等竞赛中都有广泛的应用
 
-LaTeX 加本模板可以实现：
+在刚刚结束的毕业设计撰写中，很多使用 Word 的同学在写作过程中出现大量难以解决的格式问题，非常头疼。$\LaTeX$ 虽然学习曲线较为陡峭，但花费一个小时左右时间熟悉后即可完全专注于内容撰写而无需操心任何格式问题。本模版即旨在你只需复制粘贴修改具体内容即可作出 __基本__ 符合齐鲁工业大学现行规范的毕业设计。供后人参阅
+
+
+
+$\LaTeX$ + 本模板可以实现：
 
 * 无比优雅的数学公式
 * 章节的自动标号
@@ -27,32 +31,47 @@ LaTeX 加本模板可以实现：
 
 ### 基本使用
 
-首先请阅读文档《[一份不太简短的 LaTeX 介绍](http://www.ctan.org/tex-archive/info/lshort/chinese/)》，了解 LaTeX 的基础语法。
+首先请阅读文档《[一份不太简短的 $\LaTeX$ 介绍](http://www.ctan.org/tex-archive/info/lshort/chinese/)》，了解 $\LaTeX$ 的基础语法。
 
-打开 `Thesis/preface/cover.tex`，修改封面内容。注意封面论文题目需要在format.tex处更改。
+New Structure
 
-打开 `Thesis/body.tex`，开始根据示例书写你的毕业设计。绝大部分需求（标引、插图、表格、数学公式、代码环境）等均在示例中有所体现，可直接复制粘贴修改内容。
+- (Root)Thesis
+    - `.vscode/` 
+        - `settings.json`  VSCode + LaTeX Workshop 两个工作流和文件清理
+    - `pages/`  存放分$\TeX$文件
+        - `extra/`  附加页面$\TeX$文件
+            - `acknowledgements.tex`  致谢
+            - `paperInChinese.tex`  中文文献
+            - `paperInEnglish.tex`  英文文献
+        - `abstract.tex`  摘要部分
+        - `body.tex`  正文部分
+        - `tail.tex`  文末部分 (致谢+附录)
+    - `scripts/`  存放清理脚本
+    - `setup/`  初始化阶段$\TeX$文件
+        - `cover.tex`  封面信息文件
+        - `format.tex`  格式文件
+        - `package.tex`  加载包
+    - `static/`  固定文件
+        - `code/`  存放代码片段
+        - `doc/`  存放原始文件
+            - `NewVersion/`  新版本原始docx/pdf文件
+            - `OldVersion/`  老版本原始docx/pdf文件
+        - `figures/`  存放图片文件
+        - `font/`  存放需要的字体文件
+        - `references/`  存放参考文献对应
 
-打开`Thesis/abstract.tex`，修改你的摘要信息，包括英文摘要和中文摘要。
+### 代码引入
 
-打开`Thesis/qlumain.tex`，修改你的字体信息。包括页眉页脚，以及目录的页码改成罗马数字。
-
-打开`Thesis/package.tex`，修改宏包。
-
-打开`Thesis/format.tex`，修改各种各样自定义的格式。
-
-打开`Thesis/AppendicesandAcknowledgements.tex`，加入需要添加的附录代码和致谢。
+在目录`static/code/`中添加代码
 
 ```
 smile.py
 \lstinputlisting[language=python]{code/smile.py}
 ```
 
-在目录`code/`中添加代码。
-
 ### 参考文献
 
-所有参考文献在 `Thesis/references/reference.bib` 中。BibTex 格式的参考文献可通过以下步骤获得：
+所有参考文献在 `static/references/reference.bib` 中。BibTex 格式的参考文献可通过以下步骤获得：
 
 * 打开浏览器，访问 [Google Scholar](http://scholar.google.com)
 
@@ -84,7 +103,7 @@ smile.py
 
 ### 目录，字体，字号，编号，序号，页码，页眉，排版...
 
-全都是自动的。
+全都是自动的
 
 ## 关于本魔改
 
@@ -96,6 +115,8 @@ smile.py
 * 根据现行本科生毕业论文规范修改格式
 * 适应 macOS, Windows 与 xelatex
 * 为适应我推荐的工具链做了一些优化
+* 根据现行本科生毕业论文规范修改格式 2.0
+* 适配 Debian系Linux (Debian/Ubuntu)
 
 ### 编译
 
@@ -105,6 +126,10 @@ smile.py
 #### Visual Studio Code
 
 在应用推荐工具链后，打开 `qlumain.tex`，执行 Ctrl + Alt + B；或点击左侧 TEX Tab 并单击 Build LaTeX project。
+
+最新已在包中添加了.vscode/settings.json文件，其中包括FULL Build和Quick Build两个模式，当还没有涉及参考文献的时候可以使用Quick模式，并默认自动运行linux-clean脚本清除多余文件。两个模式支持记忆上一次所使用的模式，请从VSCode左侧插件运行选项中直接点击完成切换，后续使用快捷键即可
+
+:warning: 请按照自己需要开启相应clean脚本
 
 #### 使用`Latexmk`编译
 
@@ -143,7 +168,7 @@ latexmk -c
 
 #### 其他
 
-也可使用 [@Halcao](https://github.com/Halcao) 提供的小脚本 `Thesis/clean.sh`。
+也可使用 [@Halcao](https://github.com/Halcao) 提供的小脚本 `Thesis/macos-clean.sh`。
 
 ## 推荐工具链
 
@@ -196,9 +221,10 @@ qluthesis 的原作者们作出了前人栽树的不可磨灭的贡献：
 > LaTeX Engine: TeX 3.141592653 (TeX Live 2023/Debian)
 
 1. 更新到了最新版本的论文要求模板
-2. 添加了RawTTF+BoldTTF字体用于更加贴近Word板式
-3. 添加扉页、独立创作声明等页面
-4. 测试了
+2. 修改了整体模板结构，使用pages文件夹管理所有分页
+3. 添加了RawTTF+BoldTTF字体用于更加贴近Word板式
+4. 添加扉页、独立创作声明等页面
+5. 测试了
 
 ### 2023年5月16日更新内容
 

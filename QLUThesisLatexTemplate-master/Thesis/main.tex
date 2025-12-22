@@ -8,7 +8,7 @@
 \documentclass[12pt,openany,oneside]{ctexbook}
                                                      % 本科生毕业论文通常采用单页排版
 \input{setup/package}                                % 定义本文所使用宏包
-\graphicspath{{figures/}}                            % 定义所有的图像文件在 figures 子目录下
+\graphicspath{{static/figures/}}                     % 定义所有的图像文件在 static/figures 子目录下
 \begin{document}                                     % 开始全文
 \input{setup/format}                                 % 完成对论文各个部分格式的设置
 \frontmatter   
@@ -20,7 +20,7 @@
 \fancyfoot[C]{\songti\xiaowu~\thepage~}
 }
 % 直接从 Word 模板生成封面导出 pdf 似乎更方便
-\input{preface/cover}                                % 封面    
+\input{setup/cover}                                % 封面    
 %%%%%%%%%%   目录   %%%%%%%%%%
 \defaultfont
 \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -48,30 +48,29 @@
 \makeatother
 \setcounter{page}{1}                                 % 单独从 1 开始编页码
 \titleformat{\chapter}{\centering\xiaosan\heiti}{\chaptername}{2em}{} % 恢复chapter标题格式要求
-\include{abstract}%设置摘要
+\include{pages/abstract}%设置摘要
 %%%%%%%%%  正文  %%%%%%%%%
-\include{body}
-
-
+\include{pages/body}
 
 
 
 %%%%%%%%%%  参考文献  %%%%%%%%%%
 \defaultfont
-\bibliographystyle{references/ref.buk}
+\bibliographystyle{static/references/ref.buk}
 \phantomsection
 \markboth{参考文献}{参考文献}
 \addcontentsline{toc}{chapter}{\sanhao \heiti 参考文献}       % 参考文献加入到中文目录
 \nocite{*}                                     % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
-\bibliography{references/reference}
+\bibliography{static/references/reference}
 \titleformat{\chapter}{\centering\sihao\heiti}{\chaptername}{2em}{}
+
 
 %%%%%%%%%%附录和致谢%%%%%%%%%
 
-\include{AppendicesandAcknowledgements}%这一个AppendicesandAcknowledgements就已经包含了致谢和附录的内容了，所以下面的部分读者自己取舍
-%以下注释掉的内容可以根据你的需要进行取舍
-%\include{appendix/paperInEnglish}              % 外文资料
-%\include{appendix/paperInChinese}              % 中文译文
-%\include{appendix/acknowledgements}            % 致谢
+\include{pages/tail}  % 这一个tail就已经包含了致谢和附录的内容了，所以下面的部分读者自己取舍
+% 附加页面部分
+% \include{pages/extra/paperInEnglish}              % 外文资料
+% \include{pages/extra/paperInChinese}              % 中文译文
+% \include{pages/extra/acknowledgements}            % 致谢
 \clearpage
 \end{document}                                 % 结束全文
