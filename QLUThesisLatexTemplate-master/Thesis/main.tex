@@ -6,6 +6,7 @@
 
 \def\usewhat{xelatex}
 \documentclass[12pt,openany,oneside]{ctexbook}
+
                                                      % 本科生毕业论文通常采用单页排版
 \input{setup/package}                                % 定义本文所使用宏包
 \graphicspath{{static/figures/}}                     % 定义所有的图像文件在 static/figures 子目录下
@@ -20,36 +21,57 @@
 \fancyfoot[C]{\songti\xiaowu~\thepage~}
 }
 % 直接从 Word 模板生成封面导出 pdf 似乎更方便
-\input{setup/cover}                                % 封面    
+\input{setup/cover}  % 封面 + 扉页
+\input{pages/aop}
+
+% 第 num 章的标题格式
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\chaptername}{第\ \thechapter\ 章} 
+\ctexset{
+  chapter = {
+    format = \bfseries\huge,
+    name = {第,章},
+    number = \arabic{chapter}
+  }
+}
+
+
 %%%%%%%%%%   目录   %%%%%%%%%%
 \defaultfont
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \setcounter{page}{1}                                 % 单独从 1 开始编页码
-\pagenumbering{Roman}   							 %目录部分用罗马数字编码
+\pagenumbering{arabic}  
 \titleformat{\chapter}{\centering\sanhao\heiti}{\chaptername}{2em}{} % 设置目录两字的格式
 \pdfbookmark[0]{目~~录}{mulu}
-\tableofcontents                                     % 中文目录
+\tableofcontents        
+\makeatletter                             % 中文目录
 \fancypagestyle{plain}{
-\fancyhf{}
-\renewcommand{\headrulewidth}{0 pt}
-\fancyfoot[C]{\songti\xiaowu~\thepage~}
+    \fancyhf{}
+    \fancyhead[C]{\songti\xiaowu \@cheading}            % 首页页眉格式
+    \fancyfoot[C]{\songti\xiaowu ~\thepage~}           % 首页页脚格式
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\footrulewidth}{0pt}
 }
+\makeatother
 \thispagestyle{plain}
 
 \mainmatter\defaultfont\sloppy\raggedbottom
 \makeatletter
 \fancypagestyle{plain}{                              % 设置开章页眉页脚风格
     \fancyhf{}
-    \fancyhead[C]{\songti\wuhao \@cheading}            % 首页页眉格式
+    \fancyhead[C]{\songti\xiaowu \@cheading}            % 首页页眉格式
     \fancyfoot[C]{\songti\xiaowu ~\thepage~}           % 首页页脚格式
     \renewcommand{\headrulewidth}{0.5pt}
     \renewcommand{\footrulewidth}{0pt}
 }
 \makeatother
 \setcounter{page}{1}                                 % 单独从 1 开始编页码
-\titleformat{\chapter}{\centering\xiaosan\heiti}{\chaptername}{2em}{} % 恢复chapter标题格式要求
+\pagenumbering{Roman}   							 % 摘要部分用罗马数字编码
+\titleformat{\chapter}{\centering\sanhao\heiti\bfseries}{\chaptername}{0.8em}{} % 恢复chapter标题格式要求
 \include{pages/abstract}%设置摘要
 %%%%%%%%%  正文  %%%%%%%%%
+\setcounter{page}{1} 
+\pagenumbering{arabic}  
 \include{pages/body}
 
 

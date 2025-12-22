@@ -16,9 +16,7 @@
 \renewcommand{\heiti}{\CJKfamily{simhei}}
 
 
-
-
-\newcommand{\xiaochu}{\fontsize{36pt}{36pt}}
+\newcommand{\maintitle}{\fontsize{36pt}{36pt}}                % 小初, 单倍行距
 \newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号, 单倍行距
 \newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一, 单倍行距
 \newcommand{\erhao}{\fontsize{22pt}{1.25\baselineskip}\selectfont}       % 二号, 1.25倍行距
@@ -29,6 +27,14 @@
 \newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四, 单倍行距
 \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
 \newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
+
+\newcommand{\xfsm}{\songti\xiaosi\setstretch{1.63}} 
+\newcommand{\xfbody}{\songti\xiaosi\setstretch{1.95}} 
+\newcommand{\xfabstract}{\fangsong\xiaosi\setstretch{1.95}}
+\newcommand{\xfenabstract}{\fangsong\xiaosi\setstretch{1.73}}
+
+
+
 
 %\CJKtilde  % 重新定义了波浪符~的意义
 % JUST DON'T USE CJK
@@ -77,6 +83,7 @@
 \renewcommand{\CJKglue}{\hskip -0.1 pt plus 0.08\baselineskip} % 控制字间距，使每行 34 个汉字
 \makeatother
 
+
 %%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%
 \renewcommand{\contentsname}{目\qquad 录}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{tocdepth}{2} % 控制目录深度
@@ -99,23 +106,50 @@
 \setlength{\parindent}{2em}
 \renewcommand{\chaptername}{\prechaptername\CJKnumber{\thechapter}\postchaptername}
 \titleformat{\chapter}{\centering\xiaosan\songti}{\heiti\chaptername}{2em}{}
-\titlespacing{\chapter}{0pt}{0.1\baselineskip}{0.8\baselineskip}
-\titleformat{\section}{\sihao\heiti}{\thesection}{1em}{}
-\titlespacing{\section}{0pt}{0.15\baselineskip}{0.25\baselineskip}
-\titleformat{\subsection}{\sihao\heiti}{\thesubsection}{1em}{}
-\titlespacing{\subsection}{0pt}{0.1\baselineskip}{0.3\baselineskip}
+\titlespacing{\chapter}{0pt}{0.1\baselineskip-10mm}{0\baselineskip}
+\titleformat{\section}{\sihao\heiti}{\thesection}{0.4em}{}
+\titlespacing{\section}{0pt}{0\baselineskip}{0\baselineskip}
+\titleformat{\subsection}{\sihao\heiti}{\thesubsection}{0.5em}{}
+\titlespacing{\subsection}{0pt}{0.8\baselineskip}{0.1\baselineskip}
 \titleformat{\subsubsection}{\sihao\heiti}{\thesubsubsection}{1em}{}
-\titlespacing{\subsubsection}{0pt}{0.05\baselineskip}{0.1\baselineskip}
+\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.1\baselineskip}
 
-%%%%%%%%%% Table, Figure and Equation %%%%%%%%%%%%%%%%%
+%%%%%%%%%% Table, Figure, Code and Equation %%%%%%%%%%%%%%%%%
 \renewcommand{\tablename}{表}                                     % 插表题头
 \renewcommand{\figurename}{图}                                    % 插图题头
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}       % 使图编号为 7-1 的格式 %\protect{~}
-\renewcommand{\thesubfigure}{\alph{subfigure})}                   % 使子图编号为 a) 的格式
+\renewcommand{\thesubfigure}{(\alph{subfigure})}                   % 使子图编号为 a) 的格式
 \renewcommand{\thesubtable}{(\alph{subtable})}                    % 使子表编号为 (a) 的格式
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 使表编号为 7-1 的格式
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 使公式编号为 7-1 的格式
 \newcommand{\ud}{\mathrm{d}}
+
+\AtBeginEnvironment{equation}{\vspace{-2.5em}}
+\AtEndEnvironment{equation}{\vspace{0.8em}}
+
+\renewcommand{\toprule}{\specialrule{1pt}{0pt}{0pt}}
+\renewcommand{\bottomrule}{\specialrule{1pt}{0pt}{0pt}}
+
+
+
+\lstset{numbers=left,
+  % language=Python,
+  numberstyle=\small\color{gray},
+  extendedchars=false,
+  showstringspaces=false,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keywordstyle=\color{blue!70},
+  commentstyle=\color{red!50!green!50!blue!50},
+  frame=shadowbox,
+  rulesepcolor=\color{red!20!green!20!blue!20},
+  lineskip=-1pt
+}
+
+
+\AtBeginEnvironment{algorithmic}{\setlength{\itemsep}{0pt}}
+
 
 %%%%%% 定制浮动图形和表格标题样式 %%%%%%
 \makeatletter
@@ -247,69 +281,85 @@
 
 \pagestyle{fancy}
   \fancyhf{}
-  \fancyhead[C]{\songti\wuhao \@cheading}  % 页眉显示齐鲁工业大学 20XX 届本科生毕业论文
+  \fancyhead[C]{\songti{\xiaowu{\@cheading}}}  % 页眉显示齐鲁工业大学 20XX 届本科生毕业论文
   \fancyfoot[C]{\songti\xiaowu ~\thepage~}
 \newlength{\@title@width}
 
 
 \makeatletter
-% 定义一个公共的封面内容，不处理书签等，只画版面
 \newcommand{\covercontent}{
-
-\vspace*{7.2pt}
-
-\begin{center}
-  
-    \begin{figure}[h]
-      \centering
-      \ \includegraphics[width=0.7\textwidth]{static/figures/MainLOGO-pretty.png}
-    \end{figure}
-
-    
-    \heiti\xiaochu{\textbf{\renewcommand{\CJKglue}{\hskip 0.14em}
-      本科毕业设计（~论文~）\ 
-      }}
-
-    \vspace{76pt}
-
-    \heiti\sanhao{\textbf{\@thtitle}}%修改你封面的题目
-    
-
-    \vspace{108pt}
-
-    \renewcommand\arraystretch{1.5}
-    \setlength{\@title@width}{7cm}
-      {
-      \begin{tabular}{lc}
-      \heiti\sihao{{学~部（~学~院~）}}&  \underline{\makebox[\@title@width][c]{\@caffil}} \\[0.35em]
-      \heiti\sihao{{专\quad 业\quad 班\quad 级}} &  \underline{\makebox[\@title@width][c]{\@csubject}} \\[0.34em]
-      \heiti\sihao{{学\quad 生\quad 姓\quad 名}}  &  \underline{\makebox[\@title@width][c]{\@cauthor}}\\[0.34em]
-      \heiti\sihao{{学\qquad\qquad\ \ \  号}} &  \underline{\makebox[\@title@width][c]{\@cnumber}} \\[0.34em]
-      \heiti\sihao{{导\quad 师\quad 姓\quad 名}} &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-      \end{tabular}
-      }
-    \vspace{3.25cm}
-
-    \heiti\sihao{{\@cdate}}
-
-  \end{center}
+  \renewcommand\arraystretch{1.5}
+  \setlength{\@title@width}{7cm}
+    {
+    \begin{tabular}{lc}
+    \heiti\sihao{{学~部 \ （学~院）}}&  \underline{\makebox[\@title@width][c]{\@caffil}} \\[0.35em]
+    \heiti\sihao{{专\quad 业\quad 班\quad 级}} &  \underline{\makebox[\@title@width][c]{\@csubject}} \\[0.34em]
+    \heiti\sihao{{学\quad 生\quad 姓\quad 名}}  &  \underline{\makebox[\@title@width][c]{\@cauthor}}\\[0.34em]
+    \heiti\sihao{{学\qquad\qquad\ \ \  号}} &  \underline{\makebox[\@title@width][c]{\@cnumber}} \\[0.34em]
+    \heiti\sihao{{导\quad 师\quad 姓\quad 名}} &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+    \end{tabular}
+    }
 }
 
 % 封面
-\newcommand{\makecover}{%
+\newcommand{\makecover}{
   \begin{titlepage}
-    \phantomsection
-    \pdfbookmark[-1]{\@ctitle}{ctitle}
-    \covercontent
+    \begin{center}
+      \phantomsection
+      \pdfbookmark[-1]{\@ctitle}{ctitle}
+
+      \vspace*{24.5pt}
+
+      \begin{figure}[h]
+        \centering
+        \ \includegraphics[width=0.64\textwidth]{static/figures/MainLOGO-pretty.png}
+      \end{figure}
+
+      \vspace{-1pt}
+
+      \heiti\maintitle{\textbf{\renewcommand{\CJKglue}{\hskip 0.16em}
+        本科毕业设计（  \ 论\  文 ） \ 
+        }}
+
+      \vspace{76pt}
+
+      \heiti\sanhao{\textbf{\@thtitle}}
+
+      \vspace{3.8cm}
+
+      \covercontent
+
+      \vspace{3.25cm}
+    
+      \heiti\sihao{{\@cdate}}
+
+    \end{center}
+    
   \end{titlepage}
 }
 
 % 扉页
 \newcommand{\makesubcover}{%
   \begin{titlepage}
-    % 扉页通常不加书签，或者书签级别不同
-    % 可以自行调整
-    \covercontent
+    \begin{center}
+      \vspace*{3.48cm}
+
+      \heiti\xiaoyi{\textbf{\renewcommand{\CJKglue}{\hskip 0.22em}
+        本科毕业设计（~论文~）
+        }}
+
+      \vspace{66pt}
+
+      \heiti\sanhao{\textbf{\@thtitle}}
+
+      \vspace{4.55cm}
+
+      \covercontent
+
+      \vspace{3.25cm}
+
+      \heiti\sihao{{\@cdate}}
+    \end{center}
   \end{titlepage}
 }
 \makeatother

@@ -1,6 +1,6 @@
 # QLUThesis $\LaTeX$ Template
 
-<img src="./QLUThesisLatexTemplate-master/Thesis/figures/MainLOGO-pretty.png" style="zoom: 15%">
+<img src="./QLUThesisLatexTemplate-master/Thesis/static/figures/MainLOGO-pretty.png" style="zoom: 15%">
 
 ## 说明
 
