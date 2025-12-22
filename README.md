@@ -1,10 +1,14 @@
 # QLUThesisLatexTemplate
 
-# 说明
+<img src="./QLUThesisLatexTemplate-master/Thesis/figures/MainLOGO-pretty.png" style="zoom: 15%">
 
-齐鲁工业大学本科生毕业论文 LaTeX 模版。
+## 说明
 
-# 为何使用 LaTeX
+齐鲁工业大学本科生毕业论文 LaTeX 模版
+
+## 为何使用 LaTeX
+
+<center>致爱折腾的你</center>
 
 在刚刚结束的毕业设计撰写中，很多使用 Word 的同学在写作过程中出现大量难以解决的格式问题，非常头疼。LaTeX 虽然学习曲线较为陡峭，但花费一个小时左右时间熟悉后即可完全专注于内容撰写而无需操心任何格式问题。本模版即旨在你只需复制粘贴修改具体内容即可作出 __基本__ 符合齐鲁工业大学现行规范的毕业设计。供后人参阅
 
@@ -19,9 +23,9 @@ LaTeX 加本模板可以实现：
 * 参考文献和标引的自动标号
 * __所有格式的自动正确__
 
-# 如何使用本模板
+## 如何使用本模板
 
-## 基本使用
+### 基本使用
 
 首先请阅读文档《[一份不太简短的 LaTeX 介绍](http://www.ctan.org/tex-archive/info/lshort/chinese/)》，了解 LaTeX 的基础语法。
 
@@ -46,7 +50,7 @@ smile.py
 
 在目录`code/`中添加代码。
 
-## 参考文献
+### 参考文献
 
 所有参考文献在 `Thesis/references/reference.bib` 中。BibTex 格式的参考文献可通过以下步骤获得：
 
@@ -78,37 +82,37 @@ smile.py
 
   在文中在需要的地方添加**\cite{6909475}**（数字就是上面bib文本中的第一个数字序列，可以自定义），就能引用你需要的参考文献了。
 
-## 目录，字体，字号，编号，序号，页码，页眉，排版...
+### 目录，字体，字号，编号，序号，页码，页眉，排版...
 
 全都是自动的。
 
-# 关于本魔改
+## 关于本魔改
 
 本魔改适用于Texstudio，使用 `xelatex->bibtex->xelatex->xelatex` 编译链。在 macOS, Windows 10 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Linux 用户踊跃反馈。
 
-## 魔改内容
+### 魔改内容
 
 * 移除 CJK，使用 ctex
 * 根据现行本科生毕业论文规范修改格式
 * 适应 macOS, Windows 与 xelatex
 * 为适应我推荐的工具链做了一些优化
 
-## 编译
+### 编译
 
 > - 编译操作**在 `qlumain.tex` 所在目录下进行**
 > - 以下编译方式任选其一即可
 
-### Visual Studio Code
+#### Visual Studio Code
 
 在应用推荐工具链后，打开 `qlumain.tex`，执行 Ctrl + Alt + B；或点击左侧 TEX Tab 并单击 Build LaTeX project。
 
-### 使用`Latexmk`编译
+#### 使用`Latexmk`编译
 
 ```bash
 latexmk -pvc -xelatex -file-line-error -interaction=nonstopmode -synctex=1 qlumain.tex
 ```
 
-### 手动编译
+#### 手动编译
 
 **依次运行**以下四条命令：
 
@@ -121,31 +125,33 @@ xelatex qlumain.tex
 
 注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确。
 
-## 清理缓存及日志
+### 清理缓存及日志
 
-### Atom
+#### Atom
 
 安装插件 `language-latex` 和 `latex`，提供 Build 和 Clean 的功能。
 
-### Visual Studio Code
+#### Visual Studio Code
 
 安装插件 `LaTeX Workshop`，提供 clean up。
 
-### Latexmk
+#### Latexmk
 
 ```bash
 latexmk -c
 ```
 
-### 其他
+#### 其他
 
 也可使用 [@Halcao](https://github.com/Halcao) 提供的小脚本 `Thesis/clean.sh`。
 
-# 推荐工具链
+## 推荐工具链
 
 * 发行版
   * macOS: MacTex
   * Windows: TeX Live
+  
+  - Debian/Ubuntu: Tex Live
 * Visual Studio Code
   * LaTeX Workshop
 * Atom
@@ -159,7 +165,7 @@ latexmk -c
 
 注意：直接使用 VSCode 打开本项目可以自动获得推荐插件与设置。如需自行配置，可参考本项目下 [.vscode/settings.json](https://github.com/twtstudio/TJUThesisLatexTemplate/blob/master/.vscode/settings.json)。
 
-# 致谢
+## 致谢
 
 qluthesis 的原作者们作出了前人栽树的不可磨灭的贡献：
 
@@ -171,16 +177,30 @@ qluthesis 的原作者们作出了前人栽树的不可磨灭的贡献：
 以及北京大学孟祥溪院士。
 
 - 李赟博 齐鲁工业大学 2019级数学与人工智能学院智能科学与技术专业本科生
+- [XLY23333](https://xly23333.xyz) 齐鲁工业大学 2022级数学与人工智能学部智能科学与技术专业本科生
 
-
-
-# License
+## License
 
 由于原项目使用 GNU GPL v3 协议，本项目作为基于 qluthesis 的衍生项目，仍保持 GNU GPL v3 协议。
 
+## 更新日志
 
+### 2025年12月
 
-# 5月16日更新内容
+开发环境
+
+> OS: Ubuntu 24.04.3 LTS (Gnome)
+>
+> IDE: VSCode-insiders +  LaTeX Workshop
+>
+> LaTeX Engine: TeX 3.141592653 (TeX Live 2023/Debian)
+
+1. 更新到了最新版本的论文要求模板
+2. 添加了RawTTF+BoldTTF字体用于更加贴近Word板式
+3. 添加扉页、独立创作声明等页面
+4. 测试了
+
+### 2023年5月16日更新内容
 
 1. 取消了中英文摘要关联在封面中，单独定义了abstract.tex文件进行编译，使得摘要可以在目录之下。
 2. 目录部分单独用罗马数字编码。
