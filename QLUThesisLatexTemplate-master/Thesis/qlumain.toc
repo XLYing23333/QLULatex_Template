@@ -1,8 +1,8 @@
-\ttl@change@i {\@ne }{chapter}{6em}{\vspace {.5\baselineskip }\xiaosan \hei }{\thecontentslabel \qquad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\sihao \contentspage }\relax 
+\ttl@change@i {\@ne }{chapter}{6em}{\vspace {.5\baselineskip }\xiaosan \heiti }{\thecontentslabel \qquad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\sihao \contentspage }\relax 
 \ttl@change@v {chapter}{}{}{}\relax 
-\ttl@change@i {\@ne }{section}{3em}{\vspace {.25\baselineskip }\sihao \hei }{\thecontentslabel \quad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\sihao \contentspage }\relax 
+\ttl@change@i {\@ne }{section}{3em}{\vspace {.25\baselineskip }\sihao \heiti }{\thecontentslabel \quad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\sihao \contentspage }\relax 
 \ttl@change@v {section}{}{}{}\relax 
-\ttl@change@i {\@ne }{subsection}{3em}{\vspace {.25\baselineskip }\sihao \hei }{\thecontentslabel \quad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\sihao \contentspage }\relax 
+\ttl@change@i {\@ne }{subsection}{3em}{\vspace {.25\baselineskip }\sihao \heiti }{\thecontentslabel \quad }{}{\hspace {.5em}\titlerule *[10pt]{$\cdot $}\sihao \contentspage }\relax 
 \ttl@change@v {subsection}{}{}{}\relax 
 \contentsline {chapter}{摘\hskip 1em\relax 要}{1}{section*.4}%
 \contentsline {chapter}{ABSTRACT}{2}{section*.6}%
@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {1.4}插图}{3}{section*.11}%
 \contentsline {section}{\numberline {1.5}代码环境}{3}{section*.12}%
 \contentsline {section}{\numberline {1.6}普通表格的绘制方法}{3}{section*.13}%
-\contentsline {chapter}{\fontsize {16pt}{16pt}\selectfont \heiti 参考文献}{5}{section*.16}%
-\contentsline {chapter}{\fontsize {16pt}{16pt}\selectfont \heiti 附\hskip 1em\relax 录}{6}{section*.18}%
-\contentsline {chapter}{\fontsize {16pt}{16pt}\selectfont \heiti 致\hskip 1em\relax 谢}{6}{section*.21}%
+\contentsline {chapter}{\fontsize {16pt}{16pt}\selectfont \CJKfamily {simhei}附\hskip 1em\relax 录}{5}{section*.17}%
+\contentsline {chapter}{\fontsize {16pt}{16pt}\selectfont \CJKfamily {simhei}致\hskip 1em\relax 谢}{5}{section*.20}%
+\contentsline {chapter}{\fontsize {16pt}{16pt}\selectfont \CJKfamily {simhei}参考文献}{5}{section*.16}%
 \contentsfinish 
