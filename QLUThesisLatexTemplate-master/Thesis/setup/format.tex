@@ -1,24 +1,33 @@
 % !Mode:: "TeX:UTF-8"
-%  Authors: 张井   Jing Zhang: prayever@gmail.com     天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
-%           余蓝涛 Lantao Yu: lantaoyu1991@gmail.com  天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科生
-%           李赟博 齐鲁工业大学 2019级数学与人工智能学院智能科学与技术专业本科生
-%           XLY23333 齐鲁工业大学 2022级数学与人工智能学部智能科学与技术专业本科生
+
+%*  Authors: 张井   Jing Zhang: prayever@gmail.com     天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
+%*           余蓝涛 Lantao Yu: lantaoyu1991@gmail.com  天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科
+%*           李赟博 齐鲁工业大学 2019级数学与人工智能学院智能科学与技术专业本科
+%*           XLY23333 齐鲁工业大学 2022级数学与人工智能学部智能科学与技术专业本科
+
+%! ************************************************************* %!
+%!              _       __                 _                     %!
+%!             | |     / /___ __________  (_)___  ____ _         %!
+%!             | | /| / / __ `/ ___/ __ \/ / __ \/ __ `/         %!
+%!             | |/ |/ / /_/ / /  / / / / / / / / /_/ /          %!
+%!             |__/|__/\__,_/_/  /_/ /_/_/_/ /_/\__, /           %!
+%!                                             /____/            %!
+%!          如果您不知道如何修改LaTeX,请勿随意尝试修改本文件!           %!
+%! ************************************************************* %!
 
 %%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
-
-\setCJKfamilyfont{simsun}{simsun}[Path=font/,Extension=.ttf, BoldFont=simsunbold.ttf]
+% Import Font
+% SimSun
+\setCJKfamilyfont{simsun}{simsun}[Path=static/font/,Extension=.ttf, BoldFont=simsunbold.ttf]
 \renewcommand{\songti}{\CJKfamily{simsun}}
-
-\setCJKfamilyfont{simfang}{simfang}[Path=font/,Extension=.ttf]
-\renewcommand{\fangsong}{\CJKfamily{simfang}}
-
-\setCJKfamilyfont{simhei}{simhei}[Path=font/,Extension=.ttf, BoldFont=simheibold.ttf]
+% SimHei
+\setCJKfamilyfont{simhei}{simhei}[Path=static/font/,Extension=.ttf, BoldFont=simheibold.ttf]
 \renewcommand{\heiti}{\CJKfamily{simhei}}
-
-
-
-
-\newcommand{\xiaochu}{\fontsize{36pt}{36pt}}
+% SimFangSong
+\setCJKfamilyfont{simfang}{simfang}[Path=static/font/,Extension=.ttf]
+\renewcommand{\fangsong}{\CJKfamily{simfang}}
+% Set Font Size
+\newcommand{\maintitle}{\fontsize{36pt}{36pt}}                % 小初, 单倍行距
 \newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号, 单倍行距
 \newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一, 单倍行距
 \newcommand{\erhao}{\fontsize{22pt}{1.25\baselineskip}\selectfont}       % 二号, 1.25倍行距
@@ -29,6 +38,12 @@
 \newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四, 单倍行距
 \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
 \newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
+% XFont Style (人工测量行距)
+\newcommand{\xfsm}{\songti\xiaosi\setstretch{1.63}}           % Xfont声明文本   
+\newcommand{\xfbody}{\songti\xiaosi\setstretch{1.95}}         % Xfont正文文本 
+\newcommand{\xfabstract}{\fangsong\xiaosi\setstretch{1.95}}   % Xfont摘要文本 
+\newcommand{\xfenabstract}{\fangsong\xiaosi\setstretch{1.73}} % XfontAbstract文本 
+
 
 %\CJKtilde  % 重新定义了波浪符~的意义
 % JUST DON'T USE CJK
@@ -77,45 +92,84 @@
 \renewcommand{\CJKglue}{\hskip -0.1 pt plus 0.08\baselineskip} % 控制字间距，使每行 34 个汉字
 \makeatother
 
+
 %%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%
-\renewcommand{\contentsname}{目\qquad 录}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{tocdepth}{2} % 控制目录深度
-% 使用 ctexbook 之后已无必要
-%\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\songti}
-             %{\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}
-             %{\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{chapter}[6em]{\vspace{.5\baselineskip}\xiaosan\heiti}%%%%%不同章节字体大小
-             {\thecontentslabel\qquad}{}
-             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{section}[3em]{\vspace{.25\baselineskip}\sihao\heiti}
-             {\thecontentslabel\quad}{}
-             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{subsection}[3em]{\vspace{.25\baselineskip}\sihao\heiti}
-             {\thecontentslabel\quad}{}
-             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
+\renewcommand{\contentsname}{\heiti\sanhao\textbf{目\qquad 录}}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{2} % 目录大小参数调整
+\titlecontents{chapter}[0em]{\vspace{0.045\baselineskip}\xiaosan\heiti}
+             {\thecontentslabel\ }{}
+             {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\sihao\contentspage}
+\titlecontents{section}[1.9em]{\vspace{0.045\baselineskip}\sihao\heiti}
+             {\thecontentslabel\ }{}
+             {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\sihao\contentspage}
+\titlecontents{subsection}[3.5em]{\vspace{0.045\baselineskip}\sihao\heiti}
+             {\thecontentslabel\ \ }{}
+             {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\sihao\contentspage}
 
 %%%%%%%%%% Chapter and Section %%%%%%%%%%%%%
 \setcounter{secnumdepth}{4}
 \setlength{\parindent}{2em}
 \renewcommand{\chaptername}{\prechaptername\CJKnumber{\thechapter}\postchaptername}
 \titleformat{\chapter}{\centering\xiaosan\songti}{\heiti\chaptername}{2em}{}
-\titlespacing{\chapter}{0pt}{0.1\baselineskip}{0.8\baselineskip}
-\titleformat{\section}{\sihao\heiti}{\thesection}{1em}{}
-\titlespacing{\section}{0pt}{0.15\baselineskip}{0.25\baselineskip}
-\titleformat{\subsection}{\sihao\heiti}{\thesubsection}{1em}{}
-\titlespacing{\subsection}{0pt}{0.1\baselineskip}{0.3\baselineskip}
+\titlespacing{\chapter}{0pt}{0.1\baselineskip-10mm}{0\baselineskip}
+\titleformat{\section}{\sihao\heiti}{\thesection}{0.4em}{}
+\titlespacing{\section}{0pt}{0\baselineskip}{0\baselineskip}
+\titleformat{\subsection}{\sihao\heiti}{\thesubsection}{0.5em}{}
+\titlespacing{\subsection}{0pt}{0.8\baselineskip}{0.1\baselineskip}
 \titleformat{\subsubsection}{\sihao\heiti}{\thesubsubsection}{1em}{}
-\titlespacing{\subsubsection}{0pt}{0.05\baselineskip}{0.1\baselineskip}
+\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0.1\baselineskip}
 
-%%%%%%%%%% Table, Figure and Equation %%%%%%%%%%%%%%%%%
+%%%%%%%%%% Table, Figure, Code and Equation %%%%%%%%%%%%%%%%%
 \renewcommand{\tablename}{表}                                     % 插表题头
 \renewcommand{\figurename}{图}                                    % 插图题头
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}       % 使图编号为 7-1 的格式 %\protect{~}
-\renewcommand{\thesubfigure}{\alph{subfigure})}                   % 使子图编号为 a) 的格式
+\renewcommand{\thesubfigure}{(\alph{subfigure})}                   % 使子图编号为 a) 的格式
 \renewcommand{\thesubtable}{(\alph{subtable})}                    % 使子表编号为 (a) 的格式
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 使表编号为 7-1 的格式
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 使公式编号为 7-1 的格式
 \newcommand{\ud}{\mathrm{d}}
+% 公式适配
+\AtBeginEnvironment{equation}{\vspace{-2.5em}}  % 减少公式顶部空白
+\AtEndEnvironment{equation}{\vspace{0.8em}}     % 增加公式底部空白
+% 三线表上下加粗适配
+\renewcommand{\toprule}{\specialrule{1pt}{0pt}{0pt}}
+\renewcommand{\bottomrule}{\specialrule{1pt}{0pt}{0pt}}
+% 代码导入配置
+\newfontfamily\CodeNewRoman{CodeNewRomanNerdFont}[
+    Path = static/font/,
+    Extension = .otf
+]
+\def\lstbasicfont{\CodeNewRoman\footnotesize}
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\lstset{numbers=left,
+  % language=Python,
+  basicstyle=\CodeNewRoman\footnotesize,
+  numberstyle=\small\color{gray},
+  extendedchars=false,
+  showstringspaces=false,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keywordstyle=\color{darkblue}\bfseries,%
+  commentstyle=\color{darkgreen},%\itshape,%
+  frame=shadowbox,
+  rulesepcolor=\color{red!20!green!20!blue!20},
+  lineskip=-2pt,
+  % indexing
+  numbers=left,
+  numberstyle=\small,%
+  % character display
+  showstringspaces=false,
+  showspaces=false,%
+  tabsize=4,%
+  % style
+  stringstyle=\color{black}%
+}
+
+\AtBeginEnvironment{algorithmic}{\setlength{\itemsep}{0pt}}
+
 
 %%%%%% 定制浮动图形和表格标题样式 %%%%%%
 \makeatletter
@@ -152,37 +206,12 @@
 
 %%%%%%%%%% Page: number, header and footer  %%%%%%%%%%%%%%%%%
 
-%\frontmatter 或 \pagenumbering{roman}
-%\mainmatter 或 \pagenumbering{arabic}
+
 \makeatletter
 \renewcommand\frontmatter{\clearpage
   \@mainmatterfalse
   }
 \makeatother
-
-%%%%%%%%%%% Code: Listings from MCM Template %%%%%%%%%%%%
-
-\definecolor{grey}{rgb}{0.8,0.8,0.8}
-\definecolor{darkgreen}{rgb}{0,0.3,0}
-\definecolor{darkblue}{rgb}{0,0,0.3}
-\def\lstbasicfont{\fontfamily{pcr}\selectfont\footnotesize}
-\lstset{%
-% indexing
-   % numbers=left,
-   % numberstyle=\small,%
-% character display
-    showstringspaces=false,
-    showspaces=false,%
-    tabsize=4,%
-% style
-    frame=lines,%
-    basicstyle={\footnotesize\lstbasicfont},%
-    keywordstyle=\color{darkblue}\bfseries,%
-    identifierstyle=,%
-    commentstyle=\color{darkgreen},%\itshape,%
-    stringstyle=\color{black}%
-}
-\lstloadlanguages{C,C++,Java,Matlab,Mathematica,Python}
 
 %%%%%%%%%%%% References %%%%%%%%%%%%%%%%%
 \renewcommand{\bibname}{参考文献}
@@ -190,7 +219,7 @@
 \makeatletter
 \renewenvironment{thebibliography}[1]{
     \titleformat{\chapter}{\raggedright\sihao\heiti}{\chaptername}{2em}{}
-   \chapter*{\bibname}
+  %  \chapter*{\bibname}
    \wuhao
    \list{\@biblabel{\@arabic\c@enumiv}}
         {\renewcommand{\makelabel}[1]{##1\hfill}
@@ -242,123 +271,93 @@
 \def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
 \def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
 \def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
+\def\thtitle#1{\def\@thtitle{#1}}\def\@thtitle{}
 
 
 \pagestyle{fancy}
   \fancyhf{}
-  \fancyhead[C]{\songti\wuhao \@cheading}  % 页眉显示齐鲁工业大学 20XX 届本科生毕业论文
+  \fancyhead[C]{\songti{\xiaowu{\@cheading}}}  % 页眉显示齐鲁工业大学 20XX 届本科毕业论文
   \fancyfoot[C]{\songti\xiaowu ~\thepage~}
 \newlength{\@title@width}
 
 
 \makeatletter
-% 定义一个公共的封面内容，不处理书签等，只画版面
 \newcommand{\covercontent}{
-
-\vspace*{7.2pt}
-
-\begin{center}
-  
-    \begin{figure}[h]
-      \centering
-      \ \includegraphics[width=0.7\textwidth]{figures/MainLOGO-pretty.png}
-    \end{figure}
-
-    
-    \heiti\xiaochu{\textbf{\renewcommand{\CJKglue}{\hskip 0.14em}
-      本科毕业设计（~论文~）\ 
-      }}
-
-    \vspace{76pt}
-
-    \heiti\sanhao{\textbf{中文论文题目（三号黑体加粗）}}%修改你封面的题目
-
-    \vspace{108pt}
-
-    \renewcommand\arraystretch{1.5}
-    \setlength{\@title@width}{7cm}
-      {
-      \begin{tabular}{lc}
-      \heiti\sihao{{学~部（~学~院~）}}&  \underline{\makebox[\@title@width][c]{\@caffil}} \\[0.35em]
-      \heiti\sihao{{专\quad 业\quad 班\quad 级}} &  \underline{\makebox[\@title@width][c]{\@csubject}} \\[0.34em]
-      \heiti\sihao{{学\quad 生\quad 姓\quad 名}}  &  \underline{\makebox[\@title@width][c]{\@cauthor}}\\[0.34em]
-      \heiti\sihao{{学\qquad\qquad\ \ \  号}} &  \underline{\makebox[\@title@width][c]{\@cnumber}} \\[0.34em]
-      \heiti\sihao{{导\quad 师\quad 姓\quad 名}} &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-      \end{tabular}
-      }
-    \vspace{3.25cm}
-
-    \heiti\sihao{{\@cdate}}
-
-  \end{center}
+  \renewcommand\arraystretch{1.5}
+  \setlength{\@title@width}{7cm}
+    {
+    \begin{tabular}{lc}
+    \heiti\sihao{{学~部 \ （学~院）}}&  \underline{\makebox[\@title@width][c]{\@caffil}} \\[0.35em]
+    \heiti\sihao{{专\quad 业\quad 班\quad 级}} &  \underline{\makebox[\@title@width][c]{\@csubject}} \\[0.34em]
+    \heiti\sihao{{学\quad 生\quad 姓\quad 名}}  &  \underline{\makebox[\@title@width][c]{\@cauthor}}\\[0.34em]
+    \heiti\sihao{{学\qquad\qquad\ \ \  号}} &  \underline{\makebox[\@title@width][c]{\@cnumber}} \\[0.34em]
+    \heiti\sihao{{导\quad 师\quad 姓\quad 名}} &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+    \end{tabular}
+    }
 }
 
 % 封面
-\newcommand{\makecover}{%
+\newcommand{\makecover}{
   \begin{titlepage}
-    \phantomsection
-    \pdfbookmark[-1]{\@ctitle}{ctitle}
-    \covercontent
+    \begin{center}
+      \phantomsection
+      \pdfbookmark[-1]{\@ctitle}{ctitle}
+
+      \vspace*{24.5pt}
+
+      \begin{figure}[h]
+        \centering
+        \ \includegraphics[width=0.64\textwidth]{static/figures/MainLOGO-pretty.png}
+      \end{figure}
+
+      \vspace{-1pt}
+
+      \heiti\maintitle{\textbf{\renewcommand{\CJKglue}{\hskip 0.16em}
+        本科毕业设计（  \ 论\  文 ） \ 
+        }}
+
+      \vspace{76pt}
+
+      \heiti\sanhao{\textbf{\@thtitle}}
+
+      \vspace{3.8cm}
+
+      \covercontent
+
+      \vspace{3.25cm}
+    
+      \heiti\sihao{{\@cdate}}
+
+    \end{center}
+    
   \end{titlepage}
 }
 
 % 扉页
 \newcommand{\makesubcover}{%
   \begin{titlepage}
-    % 扉页通常不加书签，或者书签级别不同
-    % 可以自行调整
-    \covercontent
+    \begin{center}
+      \vspace*{3.48cm}
+
+      \heiti\xiaoyi{\textbf{\renewcommand{\CJKglue}{\hskip 0.22em}
+        本科毕业设计（~论文~）
+        }}
+
+      \vspace{66pt}
+
+      \heiti\sanhao{\textbf{\@thtitle}}
+
+      \vspace{4.55cm}
+
+      \covercontent
+
+      \vspace{3.25cm}
+
+      \heiti\sihao{{\@cdate}}
+    \end{center}
   \end{titlepage}
 }
 \makeatother
 
-
-% % 定义封面
-% \def\makecover{
-% %\cleardoublepage%
-%    \phantomsection
-%     \pdfbookmark[-1]{\@ctitle}{ctitle}
-
-%     \begin{titlepage}
-      
-%       \vspace*{7.2pt}
-      
-%       \begin{center}
-
-%       \begin{figure}[h]
-%       \centering
-%       \ \includegraphics[width=0.7\textwidth]{figures/MainLOGO-pretty.png}
-%       \end{figure}
-%       \heiti\xiaochu\textbf{\renewcommand{\CJKglue}{\hskip 0.14em}
-%         本科毕业设计（~论文~）\ 
-%       }
-
-%       \vspace{76pt}
-
-%       \heiti\sanhao{\textbf{中文论文题目（三号黑体加粗）}}%修改你封面的题目
-
-%       \vspace{108pt}
-
-%       \renewcommand\arraystretch{1.5}
-%       \setlength{\@title@width}{7cm}
-%       {
-%       \begin{tabular}{lc}
-%         \heiti\sihao{{学~部（~学~院~）}}&  \underline{\makebox[\@title@width][c]{\@caffil}} \\[0.35em]
-%         \heiti\sihao{{专\quad 业\quad 班\quad 级}} &  \underline{\makebox[\@title@width][c]{\@csubject}} \\[0.34em]
-%         \heiti\sihao{{学\quad 生\quad 姓\quad 名}}  &  \underline{\makebox[\@title@width][c]{\@cgrade}}\\[0.34em]
-%         \heiti\sihao{{学\qquad\qquad\ \ \  号}} &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\[0.34em]
-%         \heiti\sihao{{导\quad 师\quad 姓\quad 名}} &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-%       \end{tabular}
-%       }
-%       \vspace{3.25cm}
-
-%     \heiti\sihao{{\@cdate}}
-
-%     \end{center}
-% \end{titlepage}
-% }
-% \makeatother
-
-% 定义扉页
 
 

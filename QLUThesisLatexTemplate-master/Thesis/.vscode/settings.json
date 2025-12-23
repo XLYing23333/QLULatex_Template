@@ -1,0 +1,58 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {  
+            "name": "linux-clean-script",
+            "command": "bash",
+            "args": ["./scripts/linux-clean.sh"]
+        },
+        {  
+            "name": "macos-clean-script",
+            "command": "bash",
+            "args": ["./scripts/macos-clean.sh"]
+        }
+    ],
+
+    "latex-workshop.latex.recipes": [
+        {
+            // Full build 标准化全量编译，包括参考文献
+            "name": "Full build (xelatex+bibtex)",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex",
+                // "linux-clean-script" // 仅适用于linux，windows下请注释掉
+                // "macosx-clean-script", // 仅适用于macos，windows下请注释掉
+            ]
+        },
+        {
+            // Quick build 仅用于快速大量修改，不需要参考文献时使用
+            "name": "Quick build (xelatex only)",
+            "tools": [
+                "xelatex",
+                // "macosx-clean-script", // 仅适用于macos，windows下请注释掉
+                // "linux-clean-script" // 仅适用于linux，windows下请注释掉
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.view.pdf.viewer": "tab"
+
+}
