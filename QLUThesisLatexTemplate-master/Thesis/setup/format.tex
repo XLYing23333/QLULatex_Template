@@ -1,21 +1,32 @@
 % !Mode:: "TeX:UTF-8"
-%  Authors: 张井   Jing Zhang: prayever@gmail.com     天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
-%           余蓝涛 Lantao Yu: lantaoyu1991@gmail.com  天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科生
-%           李赟博 齐鲁工业大学 2019级数学与人工智能学院智能科学与技术专业本科生
-%           XLY23333 齐鲁工业大学 2022级数学与人工智能学部智能科学与技术专业本科生
+
+%*  Authors: 张井   Jing Zhang: prayever@gmail.com     天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
+%*           余蓝涛 Lantao Yu: lantaoyu1991@gmail.com  天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科
+%*           李赟博 齐鲁工业大学 2019级数学与人工智能学院智能科学与技术专业本科
+%*           XLY23333 齐鲁工业大学 2022级数学与人工智能学部智能科学与技术专业本科
+
+%! ************************************************************* %!
+%!              _       __                 _                     %!
+%!             | |     / /___ __________  (_)___  ____ _         %!
+%!             | | /| / / __ `/ ___/ __ \/ / __ \/ __ `/         %!
+%!             | |/ |/ / /_/ / /  / / / / / / / / /_/ /          %!
+%!             |__/|__/\__,_/_/  /_/ /_/_/_/ /_/\__, /           %!
+%!                                             /____/            %!
+%!          如果您不知道如何修改LaTeX,请勿随意尝试修改本文件!           %!
+%! ************************************************************* %!
 
 %%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
-
+% Import Font
+% SimSun
 \setCJKfamilyfont{simsun}{simsun}[Path=static/font/,Extension=.ttf, BoldFont=simsunbold.ttf]
 \renewcommand{\songti}{\CJKfamily{simsun}}
-
-\setCJKfamilyfont{simfang}{simfang}[Path=static/font/,Extension=.ttf]
-\renewcommand{\fangsong}{\CJKfamily{simfang}}
-
+% SimHei
 \setCJKfamilyfont{simhei}{simhei}[Path=static/font/,Extension=.ttf, BoldFont=simheibold.ttf]
 \renewcommand{\heiti}{\CJKfamily{simhei}}
-
-
+% SimFangSong
+\setCJKfamilyfont{simfang}{simfang}[Path=static/font/,Extension=.ttf]
+\renewcommand{\fangsong}{\CJKfamily{simfang}}
+% Set Font Size
 \newcommand{\maintitle}{\fontsize{36pt}{36pt}}                % 小初, 单倍行距
 \newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号, 单倍行距
 \newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一, 单倍行距
@@ -27,13 +38,11 @@
 \newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四, 单倍行距
 \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
 \newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
-
-\newcommand{\xfsm}{\songti\xiaosi\setstretch{1.63}} 
-\newcommand{\xfbody}{\songti\xiaosi\setstretch{1.95}} 
-\newcommand{\xfabstract}{\fangsong\xiaosi\setstretch{1.95}}
-\newcommand{\xfenabstract}{\fangsong\xiaosi\setstretch{1.73}}
-
-
+% XFont Style (人工测量行距)
+\newcommand{\xfsm}{\songti\xiaosi\setstretch{1.63}}           % Xfont声明文本   
+\newcommand{\xfbody}{\songti\xiaosi\setstretch{1.95}}         % Xfont正文文本 
+\newcommand{\xfabstract}{\fangsong\xiaosi\setstretch{1.95}}   % Xfont摘要文本 
+\newcommand{\xfenabstract}{\fangsong\xiaosi\setstretch{1.73}} % XfontAbstract文本 
 
 
 %\CJKtilde  % 重新定义了波浪符~的意义
@@ -85,21 +94,17 @@
 
 
 %%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%
-\renewcommand{\contentsname}{目\qquad 录}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{tocdepth}{2} % 控制目录深度
-% 使用 ctexbook 之后已无必要
-%\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\songti}
-             %{\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}
-             %{\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{chapter}[6em]{\vspace{.5\baselineskip}\xiaosan\heiti}%%%%%不同章节字体大小
-             {\thecontentslabel\qquad}{}
-             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{section}[3em]{\vspace{.25\baselineskip}\sihao\heiti}
-             {\thecontentslabel\quad}{}
-             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{subsection}[3em]{\vspace{.25\baselineskip}\sihao\heiti}
-             {\thecontentslabel\quad}{}
-             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
+\renewcommand{\contentsname}{\heiti\sanhao\textbf{目\qquad 录}}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{2} % 目录大小参数调整
+\titlecontents{chapter}[0em]{\vspace{0.045\baselineskip}\xiaosan\heiti}
+             {\thecontentslabel\ }{}
+             {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\sihao\contentspage}
+\titlecontents{section}[1.9em]{\vspace{0.045\baselineskip}\sihao\heiti}
+             {\thecontentslabel\ }{}
+             {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\sihao\contentspage}
+\titlecontents{subsection}[3.5em]{\vspace{0.045\baselineskip}\sihao\heiti}
+             {\thecontentslabel\ \ }{}
+             {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\sihao\contentspage}
 
 %%%%%%%%%% Chapter and Section %%%%%%%%%%%%%
 \setcounter{secnumdepth}{4}
@@ -123,30 +128,45 @@
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 使表编号为 7-1 的格式
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 使公式编号为 7-1 的格式
 \newcommand{\ud}{\mathrm{d}}
-
-\AtBeginEnvironment{equation}{\vspace{-2.5em}}
-\AtEndEnvironment{equation}{\vspace{0.8em}}
-
+% 公式适配
+\AtBeginEnvironment{equation}{\vspace{-2.5em}}  % 减少公式顶部空白
+\AtEndEnvironment{equation}{\vspace{0.8em}}     % 增加公式底部空白
+% 三线表上下加粗适配
 \renewcommand{\toprule}{\specialrule{1pt}{0pt}{0pt}}
 \renewcommand{\bottomrule}{\specialrule{1pt}{0pt}{0pt}}
-
-
-
+% 代码导入配置
+\newfontfamily\CodeNewRoman{CodeNewRomanNerdFont}[
+    Path = static/font/,
+    Extension = .otf
+]
+\def\lstbasicfont{\CodeNewRoman\footnotesize}
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
 \lstset{numbers=left,
   % language=Python,
+  basicstyle=\CodeNewRoman\footnotesize,
   numberstyle=\small\color{gray},
   extendedchars=false,
   showstringspaces=false,
   breakatwhitespace=false,
   breaklines=true,
   captionpos=b,
-  keywordstyle=\color{blue!70},
-  commentstyle=\color{red!50!green!50!blue!50},
+  keywordstyle=\color{darkblue}\bfseries,%
+  commentstyle=\color{darkgreen},%\itshape,%
   frame=shadowbox,
   rulesepcolor=\color{red!20!green!20!blue!20},
-  lineskip=-1pt
+  lineskip=-2pt,
+  % indexing
+  numbers=left,
+  numberstyle=\small,%
+  % character display
+  showstringspaces=false,
+  showspaces=false,%
+  tabsize=4,%
+  % style
+  stringstyle=\color{black}%
 }
-
 
 \AtBeginEnvironment{algorithmic}{\setlength{\itemsep}{0pt}}
 
@@ -186,37 +206,12 @@
 
 %%%%%%%%%% Page: number, header and footer  %%%%%%%%%%%%%%%%%
 
-%\frontmatter 或 \pagenumbering{roman}
-%\mainmatter 或 \pagenumbering{arabic}
+
 \makeatletter
 \renewcommand\frontmatter{\clearpage
   \@mainmatterfalse
   }
 \makeatother
-
-%%%%%%%%%%% Code: Listings from MCM Template %%%%%%%%%%%%
-
-\definecolor{grey}{rgb}{0.8,0.8,0.8}
-\definecolor{darkgreen}{rgb}{0,0.3,0}
-\definecolor{darkblue}{rgb}{0,0,0.3}
-\def\lstbasicfont{\fontfamily{pcr}\selectfont\footnotesize}
-\lstset{%
-% indexing
-   % numbers=left,
-   % numberstyle=\small,%
-% character display
-    showstringspaces=false,
-    showspaces=false,%
-    tabsize=4,%
-% style
-    frame=lines,%
-    basicstyle={\footnotesize\lstbasicfont},%
-    keywordstyle=\color{darkblue}\bfseries,%
-    identifierstyle=,%
-    commentstyle=\color{darkgreen},%\itshape,%
-    stringstyle=\color{black}%
-}
-\lstloadlanguages{C,C++,Java,Matlab,Mathematica,Python}
 
 %%%%%%%%%%%% References %%%%%%%%%%%%%%%%%
 \renewcommand{\bibname}{参考文献}
@@ -281,7 +276,7 @@
 
 \pagestyle{fancy}
   \fancyhf{}
-  \fancyhead[C]{\songti{\xiaowu{\@cheading}}}  % 页眉显示齐鲁工业大学 20XX 届本科生毕业论文
+  \fancyhead[C]{\songti{\xiaowu{\@cheading}}}  % 页眉显示齐鲁工业大学 20XX 届本科毕业论文
   \fancyfoot[C]{\songti\xiaowu ~\thepage~}
 \newlength{\@title@width}
 

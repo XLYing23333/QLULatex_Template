@@ -1,15 +1,25 @@
 % !Mode:: "TeX:UTF-8"
 % !TEX program = xelatex
 
-%%%%%%%%%% Port for macOS %%%%%%%%%%%
+%%%%%%%%%% Port for macOS & Linux & Windows%%%%%%%%%%%
 % Modified: Qin Yubo
+% Modified: XLY23333
+
+%! ************************************************************* %!
+%!              _       __                 _                     %!
+%!             | |     / /___ __________  (_)___  ____ _         %!
+%!             | | /| / / __ `/ ___/ __ \/ / __ \/ __ `/         %!
+%!             | |/ |/ / /_/ / /  / / / / / / / / /_/ /          %!
+%!             |__/|__/\__,_/_/  /_/ /_/_/_/ /_/\__, /           %!
+%!                                             /____/            %!
+%!          如果您不知道如何修改LaTeX,请勿随意尝试修改本文件!           %!
+%! ************************************************************* %!
 
 \def\usewhat{xelatex}
 \documentclass[12pt,openany,oneside]{ctexbook}
-
-                                                     % 本科生毕业论文通常采用单页排版
 \input{setup/package}                                % 定义本文所使用宏包
 \graphicspath{{static/figures/}}                     % 定义所有的图像文件在 static/figures 子目录下
+\pgfplotsset{compat=1.18}
 \begin{document}                                     % 开始全文
 \input{setup/format}                                 % 完成对论文各个部分格式的设置
 \frontmatter   
@@ -35,15 +45,19 @@
   }
 }
 
-
 %%%%%%%%%%   目录   %%%%%%%%%%
+
 \defaultfont
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \setcounter{page}{1}                                 % 单独从 1 开始编页码
 \pagenumbering{arabic}  
+
+
 \titleformat{\chapter}{\centering\sanhao\heiti}{\chaptername}{2em}{} % 设置目录两字的格式
 \pdfbookmark[0]{目~~录}{mulu}
-\tableofcontents        
+
+\tableofcontents   
+
 \makeatletter                             % 中文目录
 \fancypagestyle{plain}{
     \fancyhf{}
@@ -79,14 +93,13 @@
 \include{pages/body}
 
 
-
 %%%%%%%%%%  参考文献  %%%%%%%%%%
 \defaultfont
 \bibliographystyle{static/references/ref.buk}
 \phantomsection
 % \markboth{参考文献}{参考文献}
 \chapter*{\texorpdfstring{\heiti\sanhao\textbf{参考文献}}{参考文献}}
-\addcontentsline{toc}{chapter}{\sanhao\heiti\textbf{参考文献}}       % 参考文献加入到中文目录
+\addcontentsline{toc}{chapter}{\sihao\heiti{参考文献}}       % 参考文献加入到中文目录
 
 
 \nocite{*}                                     % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中

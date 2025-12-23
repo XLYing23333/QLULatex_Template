@@ -38,7 +38,7 @@
                 "bibtex",
                 "xelatex",
                 "xelatex",
-                "linux-clean-script" // 仅适用于linux，windows下请注释掉
+                // "linux-clean-script" // 仅适用于linux，windows下请注释掉
                 // "macosx-clean-script", // 仅适用于macos，windows下请注释掉
             ]
         },
@@ -48,7 +48,7 @@
             "tools": [
                 "xelatex",
                 // "macosx-clean-script", // 仅适用于macos，windows下请注释掉
-                "linux-clean-script" // 仅适用于linux，windows下请注释掉
+                // "linux-clean-script" // 仅适用于linux，windows下请注释掉
             ]
         }
     ],
