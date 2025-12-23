@@ -68,6 +68,10 @@
 \setcounter{page}{1}                                 % 单独从 1 开始编页码
 \pagenumbering{Roman}   							 % 摘要部分用罗马数字编码
 \titleformat{\chapter}{\centering\sanhao\heiti\bfseries}{\chaptername}{0.8em}{} % 恢复chapter标题格式要求
+
+
+\vspace{10em}
+
 \include{pages/abstract}%设置摘要
 %%%%%%%%%  正文  %%%%%%%%%
 \setcounter{page}{1} 
@@ -80,8 +84,11 @@
 \defaultfont
 \bibliographystyle{static/references/ref.buk}
 \phantomsection
-\markboth{参考文献}{参考文献}
-\addcontentsline{toc}{chapter}{\sanhao \heiti 参考文献}       % 参考文献加入到中文目录
+% \markboth{参考文献}{参考文献}
+\chapter*{\texorpdfstring{\heiti\sanhao\textbf{参考文献}}{参考文献}}
+\addcontentsline{toc}{chapter}{\sanhao\heiti\textbf{参考文献}}       % 参考文献加入到中文目录
+
+
 \nocite{*}                                     % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
 \bibliography{static/references/reference}
 \titleformat{\chapter}{\centering\sihao\heiti}{\chaptername}{2em}{}
