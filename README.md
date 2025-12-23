@@ -2,7 +2,7 @@
 
 # QLUThesis $\LaTeX$ Template
 
-_✨ 通过标准的 OpenAI API 格式访问所有的大模型，开箱即用 ✨_
+_✨ 拥抱高效排版，享受折腾 $\LaTeX$ ✨_
 
 </div>
 
